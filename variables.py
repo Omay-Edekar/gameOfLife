@@ -1,6 +1,13 @@
 import pygame
+import sys
+import os
 
 pygame.init()
+
+def resource_path(relative):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative)
+    return os.path.join(relative)
 
 # initialize pygame variables
 width = 720
@@ -42,4 +49,4 @@ created = False
 play = False
 
 # Random Variables
-font = "open-sans\\OpenSans-Regular.ttf"
+font = resource_path(os.path.join("open-sans","OpenSans-Regular.ttf"))
